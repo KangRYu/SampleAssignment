@@ -1,35 +1,27 @@
-float rotation = 0; // Rotation of the face in degrees
-
 void setup()
 {
   size(200,100);
+  strokeWeight(3);
+  frameRate(3);
 }
+boolean on = true;
 void draw()
 {
-  background(200);
-  push();
-  fill(255,255,0);
-  translate(100, 50);
-  rotate(radians(rotation));
-  ellipse(0,0,80,80);
-  pop();
-  push();
-  fill(255,255,0);
-  translate(100, 50);
-  rotate(radians(rotation));
-  arc(0,0,60,60,PI/8,7*PI/8);
-  pop();
-  push();
-  fill(0,0,0);
-  translate(85, 40);
-  rotate(radians(rotation));
-  ellipse(0,0,10,15);
-  pop();
-  push();
-  fill(0,0,0);
-  translate(115, 40);
-  rotate(radians(rotation));
-  ellipse(0,0,10,15);
-  pop();
-  rotation += 0.3;
+  fill(150,150,0);
+  ellipse(100,50,80,80);
+  arc(100,50,60,60,PI/8,7*PI/8);
+  fill(0);
+  ellipse(85,40,20,15);
+  ellipse(115,40,20,15);
+  if(on) {
+  	fill(255);
+  	ellipse(85,40,10,8);
+  	ellipse(115,40,10,8);
+  }
+  else {
+  	fill(150);
+  	ellipse(85,40,10,5);
+  	ellipse(115,40,10,5);
+  }
+  on = !on;
 }
